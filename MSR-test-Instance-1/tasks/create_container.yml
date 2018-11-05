@@ -1,0 +1,9 @@
+  - name: Create container
+    docker_container:
+      name: web_container
+      image: web
+      state: started
+      ports:
+      - "80:80"
+      tty: true
+      detach: true

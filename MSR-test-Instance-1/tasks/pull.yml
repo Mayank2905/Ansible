@@ -1,0 +1,3 @@
+  - name: Pull the Centos image
+    docker_image:
+      name: centos

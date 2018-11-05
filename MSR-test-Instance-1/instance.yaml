@@ -1,0 +1,17 @@
+---
+- name: Launching ec2 instance MSR-test-Instance-1
+  hosts: local
+  connection: local
+  tasks:
+    - name: Launching ec2 instance MSR-test-Instance-1
+      ec2:
+        key_name: ubuntu
+        region: us-east-2
+        instance_type: t2.micro
+        image: ami-0782e9ee97725263d
+        group: ubuntu
+        vpc_subnet_id: subnet-93b577df
+        assign_public_ip: yes
+        count: 1
+        aws_access_key: Axxxxxxx
+        aws_secret_key: P1sCxxxx        

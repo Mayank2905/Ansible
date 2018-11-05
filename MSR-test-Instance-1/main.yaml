@@ -1,0 +1,22 @@
+---
+- hosts: MSR-test-Instance-1
+  remote_user: root
+  become: yes
+  become_method: sudo
+  vars:
+    temp_folder: /tmp
+  tasks:
+    # Install Git    
+    - include: tasks/git.yml  
+    # Install Node.js    
+    - include: tasks/node.yml
+    # Install NVM
+    #- include: tasks/nvm.yml
+    # Install Docker
+    - include: tasks/docker.yml
+    # Pull Centos Image inside Docker
+    - include: tasks/pull.yml
+    # Create Image in Docker
+    - include: tasks/create_image.yml
+    #Create Conatainer inside Image and Run container in docker 
+    - include: tasks/create_container.yml

@@ -1,0 +1,19 @@
+  - name: Testing copy of the local remote file to Docker
+    copy:
+      src: /root/MSR-test-Instance-1/tasks/file/Dockerfile
+      dest: /root
+  - name: Testing copy of the local remote file to Docker
+    copy:
+      src: /root/MSR-test-Instance-1/tasks/file/index.html
+      dest: /root
+  - name: Transfer and execute a script.
+    copy:
+      src: /root/MSR-test-Instance-1/tasks/file/run.sh
+      dest: /root
+      mode: 0777
+  #- name: permission
+   # file: dest=/root/run.sh mode=a+x
+  - name: Build Image
+    docker_image:
+      path: /root
+      name: web
