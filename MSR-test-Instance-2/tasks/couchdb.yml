@@ -1,0 +1,18 @@
+  - name: Pull the couchdb image
+    docker_image:
+      name: apache/couchdb
+  - name: Run Container
+    docker_container:
+      name: Couch_Database
+      image: apache/couchdb
+      volumes:
+        - ~/data:/opt/couchdb/data
+        - ~/etc/local.d:/opt/couchdb/etc/local.d
+      state: started
+      ports:
+      - "5984:5984"
+      env :
+           COUCHDB_USER: admin
+           COUCHDB_PAASWORD: password
+      tty: true
+      detach: true
